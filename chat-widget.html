@@ -10,33 +10,42 @@
             background-color: #f0f8ff;
             color: #333;
         }
-        #chat-box {
-            width: 100%;
-            height: 300px;
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            max-width: 100%;
             border: 1px solid #ccc;
-            padding: 10px;
-            overflow-y: scroll;
-            background-color: #fff;
-            border-radius: 5px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: #fff;
+            z-index: 1000;
+        }
+        #chat-box {
+            height: 200px;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #fff;
         }
         #chat-input {
             width: calc(100% - 22px);
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-top: 10px;
+            margin: 10px;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         #send-button {
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 10px;
             background-color: #00aaff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
+            margin: 10px;
             font-size: 16px;
         }
         #send-button:hover {
@@ -45,10 +54,11 @@
     </style>
 </head>
 <body>
-    <h1>Chat with GPT</h1>
-    <div id="chat-box"></div>
-    <textarea id="chat-input" placeholder="Type your message here..."></textarea>
-    <button id="send-button">Send</button>
+    <div class="chat-widget">
+        <div id="chat-box"></div>
+        <textarea id="chat-input" placeholder="Type your message here..."></textarea>
+        <button id="send-button">Send</button>
+    </div>
 
     <script>
         document.getElementById('send-button').addEventListener('click', async () => {
@@ -73,4 +83,3 @@
     </script>
 </body>
 </html>
-
